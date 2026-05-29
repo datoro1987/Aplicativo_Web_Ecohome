@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHome360</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="logo-header">
+                <img src="multimedia/logo_ecohome_indi.PNG" alt="EcoHome 360">
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                <li><a href="/html/centros.html">Centro De Acopio</a></li>
+                <li><a href="/html/login.html" class="btn-iniciar-sesion">Iniciar Sesión</a></li>
+                <li><a href="/html/registro_user.html" class="btn-registrarse">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- BIENVENIDA PERSONALIZADA (solo si hay sesión) -->
+    <div id="bienvenida-usuario" class="bienvenida-banner" style="display:none">
+        <div class="bienvenida-contenido">
+            <span id="bienvenida-texto">👋 ¡Bienvenido de nuevo!</span>
+            <div class="bienvenida-acciones">
+                <a href="/html/registro_materiales.html" class="bienvenida-btn">♻️ Registrar residuo</a>
+                <a href="/html/estadisticas.html" class="bienvenida-btn">📊 Ver mis estadísticas</a>
+                <a href="/html/perfil.html" class="bienvenida-btn">👤 Mi perfil</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-texto">
+                <h1>Recicla mejor desde casa</h1>
+                <p>Aprende a clasificar, registra tus residuos y mide tu impacto real en el medio ambiente de Antioquia.
+                </p>
+                <div class="hero-botones">
+                    <a href="/html/clasificacion.html" class="btn">Empezar ahora</a>
+                    <a href="/html/registro_user.html" class="btn-secundario" id="btn-registrarse-hero">Crear cuenta
+                        gratis</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/multimedia/Imagen_Familia_.png" alt="Reciclaje en casa">
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACTO EN NÚMEROS -->
+    <section class="index-impacto">
+        <div class="index-container">
+            <h2 class="seccion-titulo" style="color:white">Nuestro Impacto en Antioquia</h2>
+            <p class="seccion-subtitulo" style="color:rgba(255,255,255,0.8)">Datos reales de nuestra comunidad</p>
+            <div class="impacto-numeros">
+                <div class="numero-card">
+                    <h3 id="idx-usuarios">...</h3>
+                    <p>Usuarios registrados</p>
+                </div>
+                <div class="numero-card">
+                    <h3 id="idx-kg">...</h3>
+                    <p>Kg reciclados</p>
+                </div>
+                <div class="numero-card">
+                    <h3 id="idx-registros">...</h3>
+                    <p>Registros totales</p>
+                </div>
+                <div class="numero-card">
+                    <h3 id="idx-mes">...</h3>
+                    <p>Registros este mes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+
+    <section class="index-como">
+        <div class="index-container">
+            <h2 class="seccion-titulo">¿Cómo funciona?</h2>
+            <p class="seccion-subtitulo">En 3 simples pasos empiezas a marcar la diferencia</p>
+            <div class="como-grid">
+                <div class="como-card">
+                    <div class="como-icono">📝</div>
+                    <h3>1. Crea tu cuenta</h3>
+                    <p>Regístrate gratis en menos de un minuto. Solo necesitas tu nombre y correo electrónico.</p>
+                    <a href="/html/registro_user.html" class="como-link">Registrarse →</a>
+                </div>
+                <div class="como-card">
+                    <div class="como-icono">♻️</div>
+                    <h3>2. Registra tus residuos</h3>
+                    <p>Cada vez que recicles, anota el tipo y la cantidad. Lleva un historial de tus hábitos.</p>
+                    <a href="/html/registro_materiales.html" class="como-link">Registrar →</a>
+                </div>
+                <div class="como-card">
+                    <div class="como-icono">📊</div>
+                    <h3>3. Mide tu impacto</h3>
+                    <p>Ve tus estadísticas personales con gráficos reales y descubre cuánto has contribuido.</p>
+                    <a href="/html/estadisticas.html" class="como-link">Ver estadísticas →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIPOS DE RESIDUOS — RESUMEN -->
+
+
+    <section class="index-tipos">
+        <div class="index-container">
+            <h2 class="seccion-titulo">¿Qué puedes reciclar?</h2>
+            <p class="seccion-subtitulo">Conoce los tipos de residuos que puedes registrar en EcoHome 360</p>
+            <div class="tipos-grid">
+                <div class="tipo-card">🧴<span>Plástico</span></div>
+                <div class="tipo-card">📄<span>Papel</span></div>
+                <div class="tipo-card">🍾<span>Vidrio</span></div>
+                <div class="tipo-card">🥫<span>Metal</span></div>
+                <div class="tipo-card">🌿<span>Orgánico</span></div>
+                <div class="tipo-card">💻<span>Electrónico</span></div>
+                <div class="tipo-card">👕<span>Textil</span></div>
+            </div>
+            <div style="text-align:center;margin-top:30px">
+                <a href="/html/clasificacion.html" class="btn">Ver guía completa de clasificación</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🌿 EcoHome 360</h3>
+                <p>Juntos construimos un Antioquia más limpio y sostenible. Cada residuo reciclado cuenta.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                    <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                    <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                    <li><a href="/html/centros.html">Centros de Acopio</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="/html/nosotros.html">Acerca de Nosotros</a></li>
+                    <li><a href="/html/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>📧 info@ecohome360.co</p>
+                <p>📍 Medellín, Antioquia</p>
+                <p>📞 +57 604 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 EcoHome 360 — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="JS/navbar.js"></script>
+    <script>
+        const API_URL = 'http://localhost:3000';
+
+        // ── Bienvenida personalizada ──────────────────
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if (usuario) {
+            document.getElementById('bienvenida-usuario').style.display = 'block';
+            document.getElementById('bienvenida-texto').textContent = `👋 ¡Bienvenido de nuevo, ${usuario.nombre_completo.split(' ')[0]}!`;
+            document.getElementById('btn-registrarse-hero').style.display = 'none';
+        }
+
+        //Cargar datos desde la API
+        
+        async function cargarImpacto() {
+            try {
+                const respuesta = await fetch(`${API_URL}/api/estadisticas/resumen`);
+                const datos = await respuesta.json();
+
+                if (datos.ok) {
+                    const { total_usuarios, total_kg, total_registros, registros_mes } = datos.resumen;
+                    document.getElementById('idx-usuarios').textContent = total_usuarios;
+                    document.getElementById('idx-kg').textContent = total_kg.toLocaleString('es-CO') + ' kg';
+                    document.getElementById('idx-registros').textContent = total_registros;
+                    document.getElementById('idx-mes').textContent = registros_mes;
+                }
+            } catch (error) {
+                console.error('Error al cargar impacto:', error);
+                document.getElementById('idx-usuarios').textContent = '—';
+                document.getElementById('idx-kg').textContent = '—';
+                document.getElementById('idx-registros').textContent = '—';
+                document.getElementById('idx-mes').textContent = '—';
+            }
+        }
+
+        cargarImpacto();
+    </script>
+
+</body>
+
+</html>
