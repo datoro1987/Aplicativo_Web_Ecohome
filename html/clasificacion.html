@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHome360</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="logo-header">
+                <img src="/multimedia/logo_ecohome_indi.PNG" alt="EcoHome 360">
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                <li><a href="/html/centros.html">Centro De Acopio</a></li>
+                <li><a href="/html/login.html" class="btn-iniciar-sesion">Iniciar Sesión</a></li>
+                <li><a href="/html/registro_user.html" class="btn-registrarse">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="clas-hero">
+        <div class="clas-hero-contenido">
+            <h1>Clasificación de Residuos</h1>
+            <p>De acuerdo con la Resolución 2184 de 2019 del Ministerio de Ambiente de Colombia</p>
+        </div>
+    </section>
+
+    <!-- PASO A PASO -->
+    <section class="clas-pasos">
+        <div class="clas-container">
+            <h2 class="seccion-titulo">¿Cómo separar en casa?</h2>
+            <p class="seccion-subtitulo">Sigue estos 4 pasos simples para separar correctamente tus residuos</p>
+
+            <div class="pasos-grid">
+                <div class="paso-card">
+                    <div class="paso-numero">1</div>
+                    <div class="paso-icono">🗑️</div>
+                    <h3>Ten 3 canecas en casa</h3>
+                    <p>Coloca una caneca <strong>blanca</strong> para aprovechables, una <strong>verde</strong> para
+                        orgánicos y una <strong>negra</strong> para no aprovechables.</p>
+                </div>
+                <div class="paso-card">
+                    <div class="paso-numero">2</div>
+                    <div class="paso-icono">🧹</div>
+                    <h3>Limpia antes de separar</h3>
+                    <p>Enjuaga envases de plástico, vidrio y metal antes de depositarlos en la caneca blanca. Los
+                        residuos sucios contaminan el reciclaje.</p>
+                </div>
+                <div class="paso-card">
+                    <div class="paso-numero">3</div>
+                    <div class="paso-icono">📦</div>
+                    <h3>Aplana y reduce</h3>
+                    <p>Aplana cajas, botellas y envases para ocupar menos espacio. Quita tapas y etiquetas cuando sea
+                        posible.</p>
+                </div>
+                <div class="paso-card">
+                    <div class="paso-numero">4</div>
+                    <div class="paso-icono">📍</div>
+                    <h3>Lleva al centro de acopio</h3>
+                    <p>Lleva tus aprovechables al centro de acopio más cercano o espera el día de recolección selectiva
+                        de tu barrio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIPOS DE RESIDUOS -->
+    <section class="clas-tipos">
+        <div class="clas-container">
+            <h2 class="seccion-titulo">Tipos de Residuos</h2>
+            <p class="seccion-subtitulo">Haz click en cada tipo para ver qué va y qué no va</p>
+
+            <!-- Contenedores oficiales -->
+            <div class="contenedores-oficiales">
+                <div class="contenedor-oficial blanco">
+                    <span>⬜</span>
+                    <strong>Blanco</strong>
+                    <p>Aprovechables</p>
+                </div>
+                <div class="contenedor-oficial verde">
+                    <span>🟢</span>
+                    <strong>Verde</strong>
+                    <p>Orgánicos</p>
+                </div>
+                <div class="contenedor-oficial negro">
+                    <span>⬛</span>
+                    <strong>Negro</strong>
+                    <p>No aprovechables</p>
+                </div>
+            </div>
+
+            <!-- Acordeones por tipo -->
+            <div class="acordeon-lista">
+
+                <!-- Plástico -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">🧴</span>
+                            <div>
+                                <h3>Plástico</h3>
+                                <p>Botellas, envases, bolsas, empaques</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag blanco-tag">Contenedor Blanco</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>✅ SÍ va aquí</h4>
+                                <ul>
+                                    <li>Botellas de agua y gaseosa</li>
+                                    <li>Envases de shampoo y jabón</li>
+                                    <li>Bolsas plásticas limpias</li>
+                                    <li>Recipientes de yogur y mantequilla</li>
+                                    <li>Vasos plásticos limpios</li>
+                                    <li>Tapas y corchos plásticos</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>❌ NO va aquí</h4>
+                                <ul>
+                                    <li>Plásticos con comida pegada</li>
+                                    <li>Pitillos y cubiertos desechables sucios</li>
+                                    <li>Empaques de papas fritas</li>
+                                    <li>Tecnopor (icopor)</li>
+                                    <li>Bolsas de leche sucias</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>Una botella de plástico tarda hasta <strong>500 años</strong> en degradarse.
+                                    Reciclando 1 kg de plástico se ahorra suficiente energía para que un bombillo
+                                    funcione 1 mes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Papel y Cartón -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">📄</span>
+                            <div>
+                                <h3>Papel y Cartón</h3>
+                                <p>Periódicos, cajas, cuadernos, revistas</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag blanco-tag">Contenedor Blanco</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>✅ SÍ va aquí</h4>
+                                <ul>
+                                    <li>Periódicos y revistas</li>
+                                    <li>Cajas de cartón aplastadas</li>
+                                    <li>Papel de oficina y cuadernos</li>
+                                    <li>Cajas de cereal y alimentos secos</li>
+                                    <li>Sobres y carpetas de papel</li>
+                                    <li>Rollos de papel higiénico vacíos</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>❌ NO va aquí</h4>
+                                <ul>
+                                    <li>Papel higiénico usado</li>
+                                    <li>Servilletas y pañuelos usados</li>
+                                    <li>Papel con grasa o comida</li>
+                                    <li>Papel carbón o fotográfico</li>
+                                    <li>Cajas de pizza grasosas</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>Reciclando <strong>1 tonelada de papel</strong> se salvan 17 árboles, se ahorra
+                                    26.000 litros de agua y se evita la emisión de 27 kg de contaminantes al aire.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vidrio -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">🍾</span>
+                            <div>
+                                <h3>Vidrio</h3>
+                                <p>Botellas, frascos, tarros de vidrio</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag blanco-tag">Contenedor Blanco</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>✅ SÍ va aquí</h4>
+                                <ul>
+                                    <li>Botellas de bebidas limpias</li>
+                                    <li>Frascos de salsas y mermeladas</li>
+                                    <li>Tarros de medicamentos vacíos</li>
+                                    <li>Botellas de perfume</li>
+                                    <li>Tarros de vidrio de alimentos</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>❌ NO va aquí</h4>
+                                <ul>
+                                    <li>Espejos y vidrio de ventanas</li>
+                                    <li>Bombillos y tubos fluorescentes</li>
+                                    <li>Vidrio de cristalería rota</li>
+                                    <li>Pyrex y vidrio refractario</li>
+                                    <li>Pantallas de televisor</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>El vidrio es <strong>100% reciclable</strong> infinitas veces sin perder calidad. Una
+                                    botella de vidrio tarda más de <strong>4.000 años</strong> en degradarse en la
+                                    naturaleza.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metal -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">🥫</span>
+                            <div>
+                                <h3>Metal</h3>
+                                <p>Latas, tarros, papel aluminio</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag blanco-tag">Contenedor Blanco</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>✅ SÍ va aquí</h4>
+                                <ul>
+                                    <li>Latas de gaseosa y cerveza</li>
+                                    <li>Tarros de atún y sardinas limpios</li>
+                                    <li>Papel aluminio limpio</li>
+                                    <li>Tapas metálicas de frascos</li>
+                                    <li>Latas de pintura vacías y secas</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>❌ NO va aquí</h4>
+                                <ul>
+                                    <li>Latas con restos de comida</li>
+                                    <li>Aerosoles con contenido</li>
+                                    <li>Pilas y baterías</li>
+                                    <li>Cables eléctricos</li>
+                                    <li>Electrodomésticos</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>Reciclar una lata de aluminio ahorra <strong>95% de la energía</strong> necesaria
+                                    para producir una nueva. Con la energía de reciclar 1 lata puedes ver TV durante 3
+                                    horas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orgánico -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">🌿</span>
+                            <div>
+                                <h3>Orgánico</h3>
+                                <p>Restos de comida, cáscaras, jardín</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag verde-tag">Contenedor Verde</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>✅ SÍ va aquí</h4>
+                                <ul>
+                                    <li>Cáscaras de frutas y verduras</li>
+                                    <li>Restos de comida cocinada</li>
+                                    <li>Posos de café y bolsas de té</li>
+                                    <li>Cáscaras de huevo</li>
+                                    <li>Hojas y pasto del jardín</li>
+                                    <li>Flores y plantas secas</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>❌ NO va aquí</h4>
+                                <ul>
+                                    <li>Aceite de cocina usado</li>
+                                    <li>Huesos grandes</li>
+                                    <li>Lácteos en grandes cantidades</li>
+                                    <li>Carnes procesadas</li>
+                                    <li>Madera tratada o pintada</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>Los residuos orgánicos representan hasta el <strong>60% de la basura</strong>
+                                    doméstica. Compostar en casa convierte estos desechos en abono que enriquece la
+                                    tierra.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electrónico -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">💻</span>
+                            <div>
+                                <h3>Electrónico (RAEE)</h3>
+                                <p>Dispositivos, pilas, cables, electrodomésticos</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag especial-tag">Punto Especial</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>✅ SÍ va aquí</h4>
+                                <ul>
+                                    <li>Celulares y tablets viejos</li>
+                                    <li>Computadores y laptops</li>
+                                    <li>Pilas y baterías</li>
+                                    <li>Cargadores y cables</li>
+                                    <li>Bombillos LED y fluorescentes</li>
+                                    <li>Electrodomésticos pequeños</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>⚠️ Importante</h4>
+                                <ul>
+                                    <li>Nunca los mezcles con basura normal</li>
+                                    <li>No los quemes ni desarmes</li>
+                                    <li>Borra tus datos antes de entregar</li>
+                                    <li>Lleva a puntos especiales RAEE</li>
+                                    <li>Consulta el programa de tu municipio</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>Colombia genera más de <strong>400.000 toneladas</strong> de residuos electrónicos al
+                                    año. Un celular contiene oro, plata y cobre que pueden recuperarse y reutilizarse.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No aprovechables -->
+                <div class="acordeon-item" onclick="toggleAcordeon(this)">
+                    <div class="acordeon-header">
+                        <div class="acordeon-titulo">
+                            <span class="acordeon-emoji">🗑️</span>
+                            <div>
+                                <h3>No Aprovechables</h3>
+                                <p>Lo que no se puede reciclar ni compostar</p>
+                            </div>
+                        </div>
+                        <div class="acordeon-meta">
+                            <span class="contenedor-tag negro-tag">Contenedor Negro</span>
+                            <span class="acordeon-flecha">▼</span>
+                        </div>
+                    </div>
+                    <div class="acordeon-cuerpo">
+                        <div class="acordeon-columnas">
+                            <div class="col-si">
+                                <h4>🗑️ Va en el negro</h4>
+                                <ul>
+                                    <li>Papel higiénico y pañuelos usados</li>
+                                    <li>Pañales desechables</li>
+                                    <li>Toallas sanitarias</li>
+                                    <li>Envases contaminados sin limpiar</li>
+                                    <li>Colillas de cigarrillo</li>
+                                    <li>Chicles y caramelos</li>
+                                </ul>
+                            </div>
+                            <div class="col-no">
+                                <h4>💡 Consejo</h4>
+                                <ul>
+                                    <li>Reduce primero: compra menos empaque</li>
+                                    <li>Reutiliza antes de botar</li>
+                                    <li>Si tienes duda, limpia el envase</li>
+                                    <li>Compra productos con menos packaging</li>
+                                    <li>Prefiere productos recargables</li>
+                                </ul>
+                            </div>
+                            <div class="col-dato">
+                                <h4>💡 ¿Sabías que?</h4>
+                                <p>Lo ideal es que el contenedor negro sea el que <strong>menos se llene</strong>. Con
+                                    buena separación en casa, hasta el 70% de los residuos pueden aprovecharse.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="clas-cta">
+        <div class="clas-container" style="text-align:center">
+            <h2>¿Listo para empezar a reciclar?</h2>
+            <p>Registra tus residuos y mide tu impacto ambiental real</p>
+            <div style="display:flex;gap:16px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+                <a href="/html/registro_materiales.html" class="cta-btn-principal">♻️ Registrar Residuos</a>
+                <a href="/html/centros.html" class="cta-btn-secundario">📍 Ver Centros de Acopio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🌿 EcoHome 360</h3>
+                <p>Juntos construimos un Antioquia más limpio y sostenible.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                    <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                    <li><a href="/html/centros.html">Centros de Acopio</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="/html/nosotros.html">Acerca de Nosotros</a></li>
+                    <li><a href="/html/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>📧 info@ecohome360.co</p>
+                <p>📍 Medellín, Antioquia</p>
+                <p>📞 +57 604 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 EcoHome 360 — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../JS/navbar.js"></script>
+    <script>
+        function toggleAcordeon(item) {
+            const estaAbierto = item.classList.contains('abierto');
+            document.querySelectorAll('.acordeon-item').forEach(i => i.classList.remove('abierto'));
+            if (!estaAbierto) item.classList.add('abierto');
+        }
+    </script>
+
+</body>
+
+</html>
