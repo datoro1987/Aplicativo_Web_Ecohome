@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil — EcoHome 360</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <script src="../JS/proteger.js"></script>
+    <!-- NAVBAR -->
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="logo-header">
+                <img src="/multimedia/logo_ecohome_indi.PNG" alt="EcoHome 360">
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                <li><a href="/html/centros.html">Centro De Acopio</a></li>
+                <li><a href="/html/nosotros.html">Nosotros</a></li>
+                <li><a href="/html/login.html" class="btn-iniciar-sesion">Iniciar Sesión</a></li>
+                <li><a href="/html/registro_user.html" class="btn-registrarse">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PERFIL -->
+    <section class="perfil-seccion">
+        <div class="perfil-container">
+
+            <!-- Tarjeta izquierda — Avatar y resumen -->
+            <div class="perfil-sidebar">
+                <div class="perfil-avatar">
+                    <div class="avatar-circulo" id="avatar-iniciales">--</div>
+                    <h2 id="perfil-nombre">Cargando...</h2>
+                    <p id="perfil-email" class="perfil-email-texto">--</p>
+                    <span class="perfil-badge">♻️ Reciclador activo</span>
+                </div>
+
+                <div class="perfil-resumen">
+                    <div class="resumen-item">
+                        <span class="resumen-numero" id="perfil-total-registros">--</span>
+                        <span class="resumen-label">Registros totales</span>
+                    </div>
+                    <div class="resumen-item">
+                        <span class="resumen-numero" id="perfil-total-kg">--</span>
+                        <span class="resumen-label">Kg reciclados</span>
+                    </div>
+                    <div class="resumen-item">
+                        <span class="resumen-numero" id="perfil-registros-mes">--</span>
+                        <span class="resumen-label">Este mes</span>
+                    </div>
+                </div>
+
+                <a href="/html/estadisticas.html" class="btn-ver-stats">📊 Ver mis estadísticas</a>
+            </div>
+
+            <!-- Tarjeta derecha — Formulario de edición -->
+            <div class="perfil-contenido">
+
+                <div class="perfil-tabs">
+                    <button class="tab-btn activo" onclick="mostrarTab('datos')">Mis Datos</button>
+                    <button class="tab-btn" onclick="mostrarTab('password')">Cambiar Contraseña</button>
+                    <button class="tab-btn" onclick="mostrarTab('historial')">Mis Registros</button>
+                </div>
+
+                <!-- Tab: Mis datos -->
+                <div id="tab-datos" class="tab-contenido activo">
+                    <h3>Información Personal</h3>
+                    <form id="form-perfil">
+                        <div class="form-grupo">
+                            <label>Nombre completo</label>
+                            <input type="text" id="edit-nombre" placeholder="Tu nombre completo">
+                        </div>
+                        <div class="form-grupo">
+                            <label>Correo electrónico</label>
+                            <input type="email" id="edit-email" placeholder="tucorreo@ejemplo.com">
+                        </div>
+                        <div class="form-grupo">
+                            <label>Teléfono (opcional)</label>
+                            <input type="tel" id="edit-telefono" placeholder="3001234567">
+                        </div>
+                        <div class="form-grupo">
+                            <label>Fecha de registro</label>
+                            <input type="text" id="edit-fecha" disabled style="background:#f5f5f5; cursor:not-allowed;">
+                        </div>
+                        <button type="submit" class="btn-guardar">💾 Guardar cambios</button>
+                    </form>
+                </div>
+
+                <!-- Tab: Cambiar contraseña -->
+                <div id="tab-password" class="tab-contenido">
+                    <h3>Cambiar Contraseña</h3>
+                    <form id="form-password">
+                        <div class="form-grupo">
+                            <label>Nueva contraseña</label>
+                            <input type="password" id="nueva-password" placeholder="Mínimo 6 caracteres">
+                        </div>
+                        <div class="form-grupo">
+                            <label>Confirmar nueva contraseña</label>
+                            <input type="password" id="confirmar-password" placeholder="Repite la contraseña">
+                        </div>
+                        <button type="submit" class="btn-guardar">🔒 Actualizar contraseña</button>
+                    </form>
+                </div>
+
+                <!-- Tab: Historial -->
+                <div id="tab-historial" class="tab-contenido">
+                    <h3>Mis Últimos Registros</h3>
+                    <div id="lista-registros">
+                        <p class="cargando-texto">Cargando registros...</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🌿 EcoHome 360</h3>
+                <p>Juntos construimos un Antioquia más limpio y sostenible.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                    <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                    <li><a href="/html/centros.html">Centros de Acopio</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="/html/nosotros.html">Acerca de Nosotros</a></li>
+                    <li><a href="/html/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>📧 info@ecohome360.co</p>
+                <p>📍 Medellín, Antioquia</p>
+                <p>📞 +57 604 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 EcoHome 360 — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+
+    <script src="../JS/perfil.js"></script>
+    <script src="../JS/navbar.js"></script>
+
+</body>
+
+</html>
