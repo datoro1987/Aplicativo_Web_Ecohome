@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHome360</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="logo-header">
+                <img src="/multimedia/logo_ecohome_indi.PNG" alt="EcoHome 360">
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                <li><a href="/html/centros.html">Centro De Acopio</a></li>
+                <li><a href="/html/login.html" class="btn-iniciar-sesion">Iniciar Sesión</a></li>
+                <li><a href="/html/registro_user.html" class="btn-registrarse">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="centros-hero">
+        <div class="centros-hero-contenido">
+            <h1>Centros de Acopio</h1>
+            <p>Encuentra el punto de reciclaje más cercano a tu hogar en Medellín</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO -->
+    <section class="centros-acopio">
+        <div class="centros-container">
+
+            <!-- Buscador -->
+            <div class="buscador">
+                <input type="text" id="buscar" placeholder="Buscar por nombre o barrio...">
+                <button class="btn-buscar" onclick="filtrarCentros()">🔍 Buscar</button>
+            </div>
+
+            <!-- Filtros por tipo -->
+            <div class="centros-filtros">
+                <button class="filtro-btn activo" onclick="filtrarPorTipo('todos', this)">Todos</button>
+                <button class="filtro-btn" onclick="filtrarPorTipo('plastico', this)">🧴 Plástico</button>
+                <button class="filtro-btn" onclick="filtrarPorTipo('papel', this)">📄 Papel</button>
+                <button class="filtro-btn" onclick="filtrarPorTipo('electronico', this)">💻 Electrónico</button>
+                <button class="filtro-btn" onclick="filtrarPorTipo('organico', this)">🌿 Orgánico</button>
+            </div>
+
+            <div class="contenido-centros">
+
+                <!-- Lista de centros -->
+                <div class="lista-centros" id="lista-centros">
+                    <!-- Se genera con JS -->
+                </div>
+
+                <!-- Mapa real con Leaflet -->
+                <div class="mapa-container">
+                    <div id="mapa"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🌿 EcoHome 360</h3>
+                <p>Juntos construimos un Antioquia más limpio y sostenible.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                    <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                    <li><a href="/html/centros.html">Centros de Acopio</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="/html/nosotros.html">Acerca de Nosotros</a></li>
+                    <li><a href="/html/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>📧 info@ecohome360.co</p>
+                <p>📍 Medellín, Antioquia</p>
+                <p>📞 +57 604 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 EcoHome 360 — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../JS/navbar.js"></script>
+    <script>
+
+        // ─── Datos de centros de acopio reales de Medellín ───
+        const centros = [
+            {
+                id: 1,
+                nombre: 'CATE Bazar de los Puentes (Recimed)',
+                direccion: 'Bazar de los Puentes, Medellín',
+                telefono: '(604) 385 5555',
+                horario: 'Lunes a Sábado 7:00 am - 5:00 pm',
+                tipos: ['plastico', 'papel', 'vidrio', 'metal'],
+                lat: 6.2442,
+                lng: -75.5812,
+                descripcion: 'Centro oficial de la Alcaldía de Medellín administrado por Recimed'
+            },
+            {
+                id: 2,
+                nombre: 'CATE Barrio Colombia (Arreciclar)',
+                direccion: 'Barrio Colombia, Medellín',
+                telefono: '(604) 385 5555',
+                horario: 'Lunes a Viernes 8:00 am - 5:00 pm',
+                tipos: ['plastico', 'papel', 'vidrio', 'metal', 'organico'],
+                lat: 6.2318,
+                lng: -75.5731,
+                descripcion: 'Administrado por la Asociación de Recicladores de Antioquia'
+            },
+            {
+                id: 3,
+                nombre: 'Red Verde — Carrera 51',
+                direccion: 'Carrera 51 No 32-102, Medellín',
+                telefono: '301 206 1853',
+                horario: 'Lunes a Sábado 8:00 am - 6:00 pm',
+                tipos: ['electronico', 'plastico', 'metal'],
+                lat: 6.2531,
+                lng: -75.5707,
+                descripcion: 'Especializado en residuos electrónicos y aprovechables'
+            },
+            {
+                id: 4,
+                nombre: 'Red Verde — El Poblado',
+                direccion: 'Carrera 43A # 1-50, Centro Empresarial San Fernando Plaza, El Poblado',
+                telefono: '301 206 1853',
+                horario: 'Lunes a Viernes 8:00 am - 6:00 pm',
+                tipos: ['electronico', 'plastico'],
+                lat: 6.2087,
+                lng: -75.5695,
+                descripcion: 'Punto de recolección de residuos electrónicos en El Poblado'
+            },
+            {
+                id: 5,
+                nombre: 'Emvarias — Punto Verde',
+                direccion: 'Calle 30 # 55-198, Medellín',
+                telefono: '(604) 444 0505',
+                horario: 'Lunes a Sábado 7:00 am - 4:00 pm',
+                tipos: ['plastico', 'papel', 'vidrio', 'metal', 'organico'],
+                lat: 6.2612,
+                lng: -75.5948,
+                descripcion: 'Punto Lito Verde operado por Emvarias'
+            },
+            {
+                id: 6,
+                nombre: 'CATE Corregimiento San Antonio de Prado',
+                direccion: 'La Florida, San Antonio de Prado, Medellín',
+                telefono: '(604) 385 5555',
+                horario: 'Martes, Jueves y Sábado 8:00 am - 3:00 pm',
+                tipos: ['plastico', 'papel', 'organico'],
+                lat: 6.1667,
+                lng: -75.6374,
+                descripcion: 'Centro de acopio rural administrado por Corolas'
+            },
+            {
+                id: 7,
+                nombre: 'CATE Corregimiento Altavista (Arpa)',
+                direccion: 'Corregimiento de Altavista, Medellín',
+                telefono: '(604) 385 5555',
+                horario: 'Lunes, Miércoles y Viernes 8:00 am - 3:00 pm',
+                tipos: ['plastico', 'papel', 'organico'],
+                lat: 6.2052,
+                lng: -75.6214,
+                descripcion: 'Centro de acopio rural en el corregimiento de Altavista'
+            }
+        ];
+
+        let centrosFiltrados = [...centros];
+        let mapa;
+        let marcadores = [];
+
+        // ─── Inicializar mapa ───
+        function iniciarMapa() {
+            mapa = L.map('mapa').setView([6.2442, -75.5812], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>'
+            }).addTo(mapa);
+
+            agregarMarcadores(centros);
+        }
+
+        // ─── Agregar marcadores al mapa ───
+        function agregarMarcadores(lista) {
+            // Limpiar marcadores anteriores
+            marcadores.forEach(m => mapa.removeLayer(m));
+            marcadores = [];
+
+            const icono = L.divIcon({
+                html: '♻️',
+                className: 'mapa-icono',
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+
+            lista.forEach(centro => {
+                const marcador = L.marker([centro.lat, centro.lng], { icon: icono })
+                    .addTo(mapa)
+                    .bindPopup(`
+                <div class="popup-centro">
+                    <h4>${centro.nombre}</h4>
+                    <p>📍 ${centro.direccion}</p>
+                    <p>📞 ${centro.telefono}</p>
+                    <p>🕐 ${centro.horario}</p>
+                    <p style="color:#666;font-size:0.9em">${centro.descripcion}</p>
+                </div>
+            `);
+                marcadores.push(marcador);
+            });
+        }
+
+        // ─── Renderizar lista de tarjetas ───
+        function renderizarLista(lista) {
+            const contenedor = document.getElementById('lista-centros');
+
+            if (lista.length === 0) {
+                contenedor.innerHTML = '<p style="color:#888;padding:20px">No se encontraron centros con ese criterio.</p>';
+                return;
+            }
+
+            contenedor.innerHTML = lista.map(c => `
+        <div class="centro-card" onclick="irACentro(${c.lat}, ${c.lng}, ${c.id})">
+            <h3>${c.nombre}</h3>
+            <p><strong>📍</strong> ${c.direccion}</p>
+            <p><strong>📞</strong> ${c.telefono}</p>
+            <p><strong>🕐</strong> ${c.horario}</p>
+            <div class="centro-tipos">
+                ${c.tipos.map(t => `<span class="tipo tipo-${t}">${etiquetaTipo(t)}</span>`).join('')}
+            </div>
+        </div>
+    `).join('');
+        }
+
+        // ─── Click en tarjeta → zoom en mapa ───
+        function irACentro(lat, lng, id) {
+            mapa.setView([lat, lng], 16);
+            const marcador = marcadores[centros.findIndex(c => c.id === id)];
+            if (marcador) marcador.openPopup();
+        }
+
+        // ─── Filtrar por búsqueda de texto ───
+        function filtrarCentros() {
+            const texto = document.getElementById('buscar').value.toLowerCase();
+            centrosFiltrados = centros.filter(c =>
+                c.nombre.toLowerCase().includes(texto) ||
+                c.direccion.toLowerCase().includes(texto)
+            );
+            renderizarLista(centrosFiltrados);
+            agregarMarcadores(centrosFiltrados);
+        }
+
+        // ─── Filtrar por tipo de residuo ───
+        function filtrarPorTipo(tipo, btn) {
+            document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+            btn.classList.add('activo');
+
+            if (tipo === 'todos') {
+                centrosFiltrados = [...centros];
+            } else {
+                centrosFiltrados = centros.filter(c => c.tipos.includes(tipo));
+            }
+            renderizarLista(centrosFiltrados);
+            agregarMarcadores(centrosFiltrados);
+        }
+
+        // ─── Buscar con Enter ───
+        document.getElementById('buscar').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') filtrarCentros();
+        });
+
+        // ─── Etiquetas de tipos ───
+        function etiquetaTipo(tipo) {
+            const etiquetas = {
+                plastico: '🧴 Plástico',
+                papel: '📄 Papel',
+                vidrio: '🍾 Vidrio',
+                metal: '🥫 Metal',
+                organico: '🌿 Orgánico',
+                electronico: '💻 Electrónico',
+                textil: '👕 Textil'
+            };
+            return etiquetas[tipo] || tipo;
+        }
+
+        // ─── Iniciar ───
+        iniciarMapa();
+        renderizarLista(centros);
+
+    </script>
+
+</body>
+
+</html>
