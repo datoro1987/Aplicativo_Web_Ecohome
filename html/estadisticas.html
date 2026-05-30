@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHome360</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <script src="../JS/proteger.js"></script>
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="logo-header">
+                <img src="../multimedia/logo_ecohome_indi.PNG" alt="EcoHome 360">
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                <li><a href="/html/centros.html">Centro De Acopio</a></li>
+                <li><a href="/html/login.html" class="btn-iniciar-sesion">Iniciar Sesión</a></li>
+                <li><a href="/html/registro_user.html" class="btn-registrarse">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="estadisticas">
+        <div class="estadisticas-container">
+            <h2>Estadísticas de Reciclaje</h2>
+            <p class="subtitulo">Impacto generado por nuestra comunidad en Antioquia</p>
+
+            <!-- Tarjetas de resumen -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="stat-kg">...</h3>
+                    <p>Mis Kg reciclados</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="nombre-usuario">...</h3>
+                    <p>Mi cuenta</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-mes">...</h3>
+                    <p>Mis registros este mes</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat-total">...</h3>
+                    <p>Total de mis registros</p>
+                </div>
+            </div>
+
+            <!-- Aviso si no hay sesión -->
+            <p id="aviso-sesion" style="display:none; text-align:center; color:#e53935;">
+                ⚠️ Inicia sesión para ver tus estadísticas personales.
+                <a href="login.html">Iniciar sesión</a>
+            </p>
+
+            <!-- Gráficos -->
+            <div class="graficos-row">
+                <div class="grafico-card">
+                    <h3>Residuos por Tipo</h3>
+                    <canvas id="chartTipos"></canvas>
+                </div>
+                <div class="grafico-card">
+                    <h3>Reciclaje por Mes</h3>
+                    <canvas id="chartMeses"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Gráfico de tipos de residuos
+        new Chart(document.getElementById('chartTipos'), {
+            type: 'pie',
+            data: {
+                labels: ['Plástico', 'Papel/Cartón', 'Vidrio', 'Metal', 'Orgánico'],
+                datasets: [{
+                    data: [35, 28, 15, 12, 10],
+                    backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#9C27B0', '#FF5722']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        // Gráfico de reciclaje por mes
+        new Chart(document.getElementById('chartMeses'), {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May'],
+                datasets: [{
+                    label: 'Kg reciclados',
+                    data: [420, 580, 650, 720, 890],
+                    backgroundColor: '#4CAF50'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <h3>🌿 EcoHome 360</h3>
+                <p>Juntos construimos un Antioquia más limpio y sostenible. Cada residuo reciclado cuenta.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/html/clasificacion.html">Clasificación</a></li>
+                    <li><a href="/html/registro_materiales.html">Registrar Residuos</a></li>
+                    <li><a href="/html/estadisticas.html">Estadísticas</a></li>
+                    <li><a href="/html/centros.html">Centros de Acopio</a></li>
+                    <li><a href="/html/nosotros.html">Acerca de Nosotros</a></li>
+                    <li><a href="/html/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Cuenta</h4>
+                <ul>
+                    <li><a href="/html/login.html">Iniciar Sesión</a></li>
+                    <li><a href="/html/registro_user.html">Registrarse</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>📧 info@ecohome360.co</p>
+                <p>📍 Medellín, Antioquia</p>
+                <p>📞 +57 604 123 4567</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 EcoHome 360 — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JS/estadisticas.js"></script>
+    <script src="../JS/navbar.js"></script>
+
+</body>
+
+</html>
