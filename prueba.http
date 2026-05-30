@@ -1,0 +1,9 @@
+@base = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiY29ycmVvQGNvcnJlby5jb20iLCJub21icmUiOiJEYW5pZWwgVG9ybyIsImlhdCI6MTc4MDE4NDE3NiwiZXhwIjoxNzgwMjcwNTc2fQ.FJeRTe0H96TfuHi7cZAMvLO-piyJA2iBMD3TjhcXy9I
+
+
+#GET http://localhost:3000/api/auth/usuarios
+#Authorization: Bearer {{token}}
+
+DELETE http://localhost:3000/api/auth/usuarios/5
+Authorization: Bearer {{token}}
