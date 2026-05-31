@@ -2,9 +2,6 @@
 ### Aplicación web para la gestión y clasificación de residuos reciclables
 
 ![Estado](https://img.shields.io/badge/Estado-En%20desarrollo-green)
-![Node](https://img.shields.io/badge/Node.js-v16+-339933?logo=node.js&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-XAMPP-4479A1?logo=mysql&logoColor=white)
-![License](https://img.shields.io/badge/Licencia-MIT-blue)
 
 ---
 
