@@ -10,7 +10,7 @@
 
 ##  Descripción
 
-**EcoHome 360** es una plataforma web desarrollada como evidencia del programa de **Análisis y Desarrollo de Software del SENA** (Ficha 220501096). Permite a los ciudadanos de Antioquia, Colombia, gestionar y registrar sus residuos reciclables, ubicar centros de acopio cercanos y visualizar su impacto ambiental mediante estadísticas en tiempo real.
+**EcoHome 360** es una plataforma web desarrollada como evidencia del programa de **Análisis y Desarrollo de Software del SENA** (Ficha 3336037). Permite a los ciudadanos de Antioquia, Colombia, gestionar y registrar sus residuos reciclables, ubicar centros de acopio cercanos y visualizar su impacto ambiental mediante estadísticas en tiempo real.
 
 ---
 
