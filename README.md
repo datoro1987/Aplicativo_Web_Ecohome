@@ -211,7 +211,7 @@ El script `ecohome360.sql` crea automáticamente:
 **Daniel Toro**
 - GitHub: [@datoro1987](https://github.com/datoro1987)
 - SENA — Análisis y Desarrollo de Software
-- Ficha: 3336
+- Ficha: 3336037
 
 ---
 
